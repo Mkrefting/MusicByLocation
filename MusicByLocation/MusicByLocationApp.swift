@@ -15,3 +15,7 @@ struct MusicByLocationApp: App {
         }
     }
 }
+
+/* Question to ask DPC:
+ - when press button for first time, no results... is location data not arrived yet?
+ */
