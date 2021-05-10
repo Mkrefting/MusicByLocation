@@ -15,7 +15,10 @@
 		764938512649936D00BD70FE /* MusicByLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764938502649936D00BD70FE /* MusicByLocationUITests.swift */; };
 		764938632649947900BD70FE /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764938622649947900BD70FE /* LocationHandler.swift */; };
 		7649386F2649A0B600BD70FE /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7649386E2649A0B600BD70FE /* UserLocation.swift */; };
-		76EE118F2649A95900E81913 /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE118E2649A95900E81913 /* CLPlacemark.swift */; };
+		76A2B5292649CBFB0093037B /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2B5282649CBFB0093037B /* LoaderView.swift */; };
+		76A2B52E2649CC170093037B /* ArtistRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2B52D2649CC170093037B /* ArtistRowView.swift */; };
+		76A2B5362649CE560093037B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2B5352649CE560093037B /* LocationView.swift */; };
+		76B886F22649BB2200A514EC /* ITunesAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B886F12649BB2200A514EC /* ITunesAdaptor.swift */; };
 		76EE11972649AA2F00E81913 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE11962649AA2F00E81913 /* StateController.swift */; };
 		76EE119F2649AE4500E81913 /* ArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE119E2649AE4500E81913 /* ArtistResponse.swift */; };
 		76EE11A42649AE5C00E81913 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE11A32649AE5C00E81913 /* Artist.swift */; };
@@ -53,7 +56,10 @@
 		764938522649936D00BD70FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		764938622649947900BD70FE /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		7649386E2649A0B600BD70FE /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
-		76EE118E2649A95900E81913 /* CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
+		76A2B5282649CBFB0093037B /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		76A2B52D2649CC170093037B /* ArtistRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistRowView.swift; sourceTree = "<group>"; };
+		76A2B5352649CE560093037B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		76B886F12649BB2200A514EC /* ITunesAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAdaptor.swift; sourceTree = "<group>"; };
 		76EE11962649AA2F00E81913 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
 		76EE119E2649AE4500E81913 /* ArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistResponse.swift; sourceTree = "<group>"; };
 		76EE11A32649AE5C00E81913 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
@@ -108,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				764938332649936C00BD70FE /* MusicByLocationApp.swift */,
-				76EE118D2649A95000E81913 /* Extensions */,
 				7649386D2649A0A100BD70FE /* Models */,
 				764938612649946F00BD70FE /* Views */,
 				764938622649947900BD70FE /* LocationHandler.swift */,
+				76B886F12649BB2200A514EC /* ITunesAdaptor.swift */,
 				76EE11962649AA2F00E81913 /* StateController.swift */,
 				764938372649936D00BD70FE /* Assets.xcassets */,
 				7649383C2649936D00BD70FE /* Info.plist */,
@@ -150,6 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				764938352649936C00BD70FE /* ContentView.swift */,
+				76A2B5282649CBFB0093037B /* LoaderView.swift */,
+				76A2B52D2649CC170093037B /* ArtistRowView.swift */,
+				76A2B5352649CE560093037B /* LocationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,14 +171,6 @@
 				76EE11A32649AE5C00E81913 /* Artist.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		76EE118D2649A95000E81913 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				76EE118E2649A95900E81913 /* CLPlacemark.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,13 +303,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				764938632649947900BD70FE /* LocationHandler.swift in Sources */,
+				76A2B5362649CE560093037B /* LocationView.swift in Sources */,
 				76EE11972649AA2F00E81913 /* StateController.swift in Sources */,
 				7649386F2649A0B600BD70FE /* UserLocation.swift in Sources */,
 				764938362649936C00BD70FE /* ContentView.swift in Sources */,
 				764938342649936C00BD70FE /* MusicByLocationApp.swift in Sources */,
 				76EE119F2649AE4500E81913 /* ArtistResponse.swift in Sources */,
 				76EE11A42649AE5C00E81913 /* Artist.swift in Sources */,
-				76EE118F2649A95900E81913 /* CLPlacemark.swift in Sources */,
+				76A2B5292649CBFB0093037B /* LoaderView.swift in Sources */,
+				76B886F22649BB2200A514EC /* ITunesAdaptor.swift in Sources */,
+				76A2B52E2649CC170093037B /* ArtistRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

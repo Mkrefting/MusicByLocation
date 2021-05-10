@@ -12,15 +12,29 @@ struct ContentView: View {
     @StateObject private var state = StateController()
     
     var body: some View {
-        VStack{
-            Text(state.lastKnownLocation)
-                .padding()
-            Text(state.artistsByLocation)
-                .padding()
-            Spacer()
-            Button("Find Music", action: {
-                    state.findMusic()
-            })
+        ZStack{
+            VStack{
+                
+                LocationView(location: state.userLocation, state: state.requestState)
+                
+                List{
+                    ForEach(state.artistsByLocation, id: \.self) { artist in
+                        ArtistRowView(artist: artist)
+                    }
+                }
+                
+                Spacer()
+                
+                Button("Find Music", action: {
+                        state.findMusic()
+                })
+                
+            }
+
+            if state.requestState == .requesting {
+                LoaderView()
+            }
+            
         }.onAppear(perform: {
             state.requestAccessToLocationData()
         })

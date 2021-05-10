@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 class LocationHandler: NSObject, CLLocationManagerDelegate {
+    
     let manager = CLLocationManager()
     let geocoder = CLGeocoder()
     weak var stateController: StateController?
@@ -30,11 +31,14 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
         if let firstLocation = locations.first {
             geocoder.reverseGeocodeLocation(firstLocation, completionHandler: { (placemarks, error) in
                 if error != nil {
-                    self.stateController?.lastKnownLocation = "Error processing location"
+                    self.stateController?.userLocation.error("Error processing location")
                 } else {
                     if let firstPlacemark = placemarks?[0] {
-                        self.stateController?.lastKnownLocation = firstPlacemark.getLocationBreakdown()
-                        self.stateController?.lastKnownTown = firstPlacemark.locality ?? ""
+                        self.stateController?.userLocation.name = firstPlacemark.name ?? ""
+                        self.stateController?.userLocation.thoroughfare = firstPlacemark.thoroughfare ?? ""
+                        self.stateController?.userLocation.locality = firstPlacemark.locality ?? ""
+                        self.stateController?.userLocation.administrativeArea = firstPlacemark.administrativeArea ?? ""
+                        self.stateController?.userLocation.country = firstPlacemark.country ?? ""
                     }
                 }
             })
@@ -42,7 +46,7 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
-        self.stateController?.lastKnownLocation = "Error finding location"
+        self.stateController?.userLocation.error("Error finding location")
     }
     
 }
